@@ -40,39 +40,39 @@ public:
      * Returns whether graph is continuous
      * @return
      */
-    bool isContinuous() const noexcept;
+    virtual bool isContinuous() const noexcept;
 
     /**
      * Returns whether graph is locally continuous
      * @return
      */
-    bool isLocallyContinuous() const noexcept;
+    virtual bool isLocallyContinuous() const noexcept;
 
     /**
      * Returns node continuity of graph
      * @return
      */
-    int getNodeContinuity() const noexcept;
+    virtual int getNodeContinuity() const noexcept;
 
     /**
      * Returns edge continuity
      * @return
      */
-    int getEdgeContinuity() const noexcept;
+    virtual int getEdgeContinuity() const noexcept;
 
     /**
      * Returns whether graph is K node continuous
      * @param k
      * @return
      */
-    bool isKNodeContinuous(int k) const noexcept;
+    virtual bool isKNodeContinuous(int k) const noexcept;
 
     /**
      * Returns whether graph is K edge continuous
      * @param k
      * @return
      */
-    bool isKEdgeContinuous(int k) const noexcept;
+    virtual bool isKEdgeContinuous(int k) const noexcept;
 
 public:
 
@@ -84,25 +84,25 @@ public:
      * Returns length of longest circle in graph
      * @return
      */
-    int getCircumference() noexcept;
+    virtual int getCircumference() const noexcept;
 
     /**
      * Returns whether graph has K13 as subgraph
      * @return
      */
-    bool hasClaw() noexcept;
+    virtual bool hasClaw() const noexcept;
 
     /**
      * Returns whether graph is K13 type graph
      * @return
      */
-    bool isClaw() noexcept;
+    virtual bool isClaw() const noexcept;
 
     /**
      * Returns whether graph is complete graph
      * @return
      */
-    bool isComplete() noexcept;
+    virtual bool isComplete() const noexcept;
 
 public:
 
@@ -114,13 +114,13 @@ public:
      * Returns whether graph contains Hemilton route
      * @return
      */
-    bool hasHamiltonRoute() noexcept;
+    virtual bool hasHamiltonRoute() const noexcept;
 
     /**
      * Returns whether graph contains Hemilton circle
      * @return
      */
-    bool hasHamiltonCircle() noexcept;
+    virtual bool hasHamiltonCircle() const noexcept;
 
 public:
 
@@ -132,7 +132,7 @@ public:
      * Returns graphs minimal coloring
      * @return
      */
-    int getMinColoring() noexcept;
+    virtual int getMinColoring() const noexcept;
 
 protected:
 
@@ -183,7 +183,7 @@ protected:
      * Existence of Hamilton circle
      * @return
      */
-    bool oberlySummer1979() noexcept;
+    bool oberlySummer1979() const noexcept;
 
 protected:
 

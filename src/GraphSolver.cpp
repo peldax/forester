@@ -52,17 +52,17 @@ bool GraphSolver::isKEdgeContinuous(int k) const noexcept
     return getEdgeContinuity() >= k;
 }
 
-int GraphSolver::getCircumference() noexcept
+int GraphSolver::getCircumference() const noexcept
 {
     return bfCircumference();
 }
 
-bool GraphSolver::hasClaw() noexcept
+bool GraphSolver::hasClaw() const noexcept
 {
     return bfHasClaw();
 }
 
-bool GraphSolver::isClaw() noexcept
+bool GraphSolver::isClaw() const noexcept
 {
     if (m_graph->getDegree() != 4)
     {
@@ -93,7 +93,7 @@ bool GraphSolver::isClaw() noexcept
     return count3 == 1 && count1 == 3;
 }
 
-bool GraphSolver::isComplete() noexcept
+bool GraphSolver::isComplete() const noexcept
 {
     for (int degree : m_graph->getDegrees())
     {
@@ -106,14 +106,19 @@ bool GraphSolver::isComplete() noexcept
     return true;
 }
 
-bool GraphSolver::hasHamiltonRoute() noexcept
+bool GraphSolver::hasHamiltonRoute() const noexcept
 {
     return bfHamiltonRoute();
 }
 
-bool GraphSolver::hasHamiltonCircle() noexcept
+bool GraphSolver::hasHamiltonCircle() const noexcept
 {
     return dirac1952() || ore1960() || poza1963() || chvatal1972() || bondyChvatal1974() || oberlySummer1979() || bfHamiltonCircle();
+}
+
+int GraphSolver::getMinColoring() const noexcept
+{
+    return 0;
 }
 
 bool GraphSolver::chartrandPippert1974() const noexcept
@@ -256,7 +261,7 @@ bool GraphSolver::bondyChvatal1974() const noexcept
     return closure.isComplete();
 }
 
-bool GraphSolver::oberlySummer1979() noexcept
+bool GraphSolver::oberlySummer1979() const noexcept
 {
     return isContinuous() && isLocallyContinuous() && !hasClaw();
 }
