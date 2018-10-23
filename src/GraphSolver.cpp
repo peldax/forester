@@ -278,13 +278,7 @@ static void recursiveFn(int index, std::vector<bool>& search, const std::vector<
 
 bool GraphSolver::bfContinuity() const noexcept
 {
-    std::vector<bool> search;
-    search.reserve(m_graph->getDegree());
-    // TODO fill with falses without this stupid loop
-    for (int i = 0; i < m_graph->getDegree(); i++)
-    {
-        search.push_back(false);
-    }
+    std::vector<bool> search(m_graph->getDegree(), false);
 
     // TODO make this a lambda fn
     recursiveFn(0, search, m_graph->getMatrix());
