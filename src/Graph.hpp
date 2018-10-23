@@ -43,6 +43,10 @@ protected:
 
 public:
 
+    /**
+     * Constructor by matrix
+     * @param matrix
+     */
     explicit Graph(std::vector<std::vector<bool>> matrix) :
         m_solver(std::make_unique<SmartGraphSolver>(this)),
         m_matrix(std::move(matrix))
@@ -50,6 +54,8 @@ public:
         computeProperties();
     }
 
+ public:
+ 
     /**
      * Generates new Graph instance representing subgraph induced by selected nodes
      * @param nodeIndices
@@ -57,6 +63,26 @@ public:
      */
     Graph induced(const std::vector<int>& nodeIndices) const noexcept;
 
+ public:
+
+    /**
+     * Returns matrix representation of graph
+     * @return
+     */
+    const std::vector<std::vector<bool>>& getMatrix() const noexcept
+    {
+        return m_matrix;
+    }
+
+    /**
+     * Returns vector of node degrees
+     * @return
+     */
+    const std::vector<int>& getDegrees() const noexcept
+    {
+        return m_degrees;
+    }
+ 
 public:
 
     /**
