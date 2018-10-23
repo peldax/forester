@@ -18,7 +18,7 @@
 
 #include "SmartGraphSolver.hpp"
 
-bool SmartGraphSolver::isContinuous() noexcept
+bool SmartGraphSolver::isContinuous() const noexcept
 {
     if (m_continuous == CacheState::UNKNOWN)
     {
@@ -29,7 +29,7 @@ bool SmartGraphSolver::isContinuous() noexcept
     return m_continuous == CacheState::TRUE;
 }
 
-bool SmartGraphSolver::isLocallyContinuous() noexcept
+bool SmartGraphSolver::isLocallyContinuous() const noexcept
 {
     if (m_locallyContinuous == CacheState::UNKNOWN)
     {
@@ -40,7 +40,7 @@ bool SmartGraphSolver::isLocallyContinuous() noexcept
     return m_locallyContinuous == CacheState::TRUE;
 }
 
-int SmartGraphSolver::getNodeContinuity() noexcept
+int SmartGraphSolver::getNodeContinuity() const noexcept
 {
     if (m_nodeContinuity == -1)
     {
@@ -56,7 +56,7 @@ int SmartGraphSolver::getNodeContinuity() noexcept
     return m_nodeContinuity;
 }
 
-int SmartGraphSolver::getEdgeContinuity() noexcept
+int SmartGraphSolver::getEdgeContinuity() const noexcept
 {
     if (m_edgeContinuity == -1)
     {
@@ -72,17 +72,17 @@ int SmartGraphSolver::getEdgeContinuity() noexcept
     return m_edgeContinuity;
 }
 
-bool SmartGraphSolver::isKNodeContinuous(int k) noexcept
+bool SmartGraphSolver::isKNodeContinuous(int k) const noexcept
 {
     return getNodeContinuity() >= k;
 }
 
-bool SmartGraphSolver::isKEdgeContinuous(int k) noexcept
+bool SmartGraphSolver::isKEdgeContinuous(int k) const noexcept
 {
     return getEdgeContinuity() >= k;
 }
 
-int SmartGraphSolver::getCircumference() noexcept
+int SmartGraphSolver::getCircumference() const noexcept
 {
     if (m_circumference == -1)
     {
@@ -98,7 +98,7 @@ int SmartGraphSolver::getCircumference() noexcept
     return m_circumference;
 }
 
-bool SmartGraphSolver::hasClaw() noexcept
+bool SmartGraphSolver::hasClaw() const noexcept
 {
     if (m_hasClaw == CacheState::UNKNOWN)
     {
@@ -109,17 +109,17 @@ bool SmartGraphSolver::hasClaw() noexcept
     return m_hasClaw == CacheState::TRUE;
 }
 
-bool SmartGraphSolver::isClaw() noexcept
+bool SmartGraphSolver::isClaw() const noexcept
 {
     return GraphSolver::isClaw();
 }
 
-bool SmartGraphSolver::isComplete() noexcept
+bool SmartGraphSolver::isComplete() const noexcept
 {
     return GraphSolver::isComplete();
 }
 
-bool SmartGraphSolver::hasHamiltonRoute() noexcept
+bool SmartGraphSolver::hasHamiltonRoute() const noexcept
 {
     if (m_hamiltonRoute == CacheState::UNKNOWN)
     {
@@ -136,7 +136,7 @@ bool SmartGraphSolver::hasHamiltonRoute() noexcept
     return m_hamiltonRoute == CacheState::TRUE;
 }
 
-bool SmartGraphSolver::hasHamiltonCircle() noexcept
+bool SmartGraphSolver::hasHamiltonCircle() const noexcept
 {
     if (m_hamiltonRoute == CacheState::UNKNOWN)
     {
@@ -151,4 +151,9 @@ bool SmartGraphSolver::hasHamiltonCircle() noexcept
     }
 
     return m_hamiltonRoute == CacheState::TRUE;
+}
+
+int SmartGraphSolver::getMinColoring() const noexcept
+{
+    return 0;
 }

@@ -26,14 +26,14 @@ class SmartGraphSolver : public GraphSolver
 
 protected:
 
-    CacheState m_continuous = CacheState::UNKNOWN;
-    CacheState m_locallyContinuous = CacheState::UNKNOWN;
-    CacheState m_hasClaw = CacheState::UNKNOWN;
-    CacheState m_hamiltonRoute = CacheState::UNKNOWN;
-    CacheState m_hamiltonCircle = CacheState::UNKNOWN;
-    int m_nodeContinuity = -1;
-    int m_edgeContinuity = -1;
-    int m_circumference = -1;
+    mutable CacheState m_continuous = CacheState::UNKNOWN;
+    mutable CacheState m_locallyContinuous = CacheState::UNKNOWN;
+    mutable CacheState m_hasClaw = CacheState::UNKNOWN;
+    mutable CacheState m_hamiltonRoute = CacheState::UNKNOWN;
+    mutable CacheState m_hamiltonCircle = CacheState::UNKNOWN;
+    mutable int m_nodeContinuity = -1;
+    mutable int m_edgeContinuity = -1;
+    mutable int m_circumference = -1;
 
 public:
 
@@ -52,39 +52,39 @@ public:
      * Returns whether graph is continuous
      * @return
      */
-    bool isContinuous() noexcept;
+    bool isContinuous() const noexcept override;
 
     /**
      * Returns whether graph is locally continuous
      * @return
      */
-    bool isLocallyContinuous() noexcept;
+    bool isLocallyContinuous() const noexcept override;
 
     /**
      * Returns node continuity of graph
      * @return
      */
-    int getNodeContinuity() noexcept;
+    int getNodeContinuity() const noexcept override;
 
     /**
      * Returns edge continuity
      * @return
      */
-    int getEdgeContinuity() noexcept;
+    int getEdgeContinuity() const noexcept override;
 
     /**
      * Returns whether graph is K node continuous
      * @param k
      * @return
      */
-    bool isKNodeContinuous(int k) noexcept;
+    bool isKNodeContinuous(int k) const noexcept override;
 
     /**
      * Returns whether graph is K edge continuous
      * @param k
      * @return
      */
-    bool isKEdgeContinuous(int k) noexcept;
+    bool isKEdgeContinuous(int k) const noexcept override;
 
 public:
 
@@ -96,25 +96,25 @@ public:
      * Returns length of longest circle in graph
      * @return
      */
-    int getCircumference() noexcept;
+    int getCircumference() const noexcept override;
 
     /**
      * Returns whether graph has K13 as subgraph
      * @return
      */
-    bool hasClaw() noexcept;
+    bool hasClaw() const noexcept override;
 
     /**
      * Returns whether graph is K13 type graph
      * @return
      */
-    bool isClaw() noexcept;
+    bool isClaw() const noexcept override;
 
     /**
      * Returns whether graph is complete graph
      * @return
      */
-    bool isComplete() noexcept;
+    bool isComplete() const noexcept override;
 
 public:
 
@@ -126,13 +126,13 @@ public:
      * Returns whether graph contains Hemilton route
      * @return
      */
-    bool hasHamiltonRoute() noexcept;
+    bool hasHamiltonRoute() const noexcept override;
 
     /**
      * Returns whether graph contains Hemilton circle
      * @return
      */
-    bool hasHamiltonCircle() noexcept;
+    bool hasHamiltonCircle() const noexcept override;
 
 public:
 
@@ -144,5 +144,5 @@ public:
      * Returns graphs minimal coloring
      * @return
      */
-    int getMinColoring() noexcept;
+    int getMinColoring() const noexcept override;
 };
