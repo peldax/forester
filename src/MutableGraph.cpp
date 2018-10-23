@@ -63,9 +63,9 @@ void MutableGraph::addNode() noexcept
 
 void MutableGraph::removeNode(int index) noexcept
 {
-    for (auto& row : m_matrix)
+    for (int i = 0; i < getDegree(); i++)
     {
-        row.erase(m_degrees.begin() + index);
+        m_matrix.at(i).erase(m_matrix.at(i).begin() + index);
     }
 
     m_matrix.erase(m_matrix.begin() + index);
