@@ -89,7 +89,7 @@ public:
      * Returns graphs degree (number of nodes)
      * @return
      */
-    inline int getDegree() const noexcept
+    int getDegree() const noexcept
     {
         return m_matrix.size();
     }
@@ -98,7 +98,7 @@ public:
      * Returns graphs size (number of edges)
      * @return
      */
-    inline int getSize() const noexcept
+    int getSize() const noexcept
     {
         return m_size;
     }
@@ -109,7 +109,7 @@ public:
      * @param index2
      * @return
      */
-    inline bool hasEdge(int index1, int index2) const noexcept
+    bool hasEdge(int index1, int index2) const noexcept
     {
         return m_matrix[index1][index2];
     }
@@ -120,7 +120,7 @@ public:
      * Returns max node degree
      * @return
      */
-    inline int getMaxDegree() const noexcept
+    int getMaxDegree() const noexcept
     {
         return m_maxDegree;
     }
@@ -129,7 +129,7 @@ public:
      * Returns min node degree
      * @return
      */
-    inline int getMinDegree() const noexcept
+    int getMinDegree() const noexcept
     {
         return m_minDegree;
     }
@@ -139,7 +139,7 @@ public:
      * @param index
      * @return
      */
-    inline int getNodeDegree(int index) const noexcept
+    int getNodeDegree(int index) const noexcept
     {
         return m_degrees[index];
     }
