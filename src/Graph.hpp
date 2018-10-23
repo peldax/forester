@@ -170,7 +170,7 @@ public:
      */
     bool isKNodeContinuous(int k) const noexcept
     {
-        return m_solver->isKNodeContinuous();
+        return m_solver->isKNodeContinuous(k);
     }
 
     /**
@@ -180,7 +180,7 @@ public:
      */
     bool isKEdgeContinuous(int k) const noexcept
     {
-        return m_solver->isKEdgeContinuous();
+        return m_solver->isKEdgeContinuous(k);
     }
 
 public:
