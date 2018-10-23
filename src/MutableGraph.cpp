@@ -20,7 +20,7 @@
 
 void MutableGraph::addEdge(int index1, int index2) noexcept
 {
-    if (m_matrix.at(index1).at(index2))
+    if (m_matrix[index1][index2])
     {
         return;
     }
@@ -33,7 +33,7 @@ void MutableGraph::addEdge(int index1, int index2) noexcept
 
 void MutableGraph::removeEdge(int index1, int index2) noexcept
 {
-    if (!m_matrix.at(index1).at(index2))
+    if (!m_matrix[index1][index2])
     {
         return;
     }
@@ -65,7 +65,7 @@ void MutableGraph::removeNode(int index) noexcept
 {
     for (int i = 0; i < getDegree(); i++)
     {
-        m_matrix.at(i).erase(m_matrix.at(i).begin() + index);
+        m_matrix[i].erase(m_matrix[i].begin() + index);
     }
 
     m_matrix.erase(m_matrix.begin() + index);

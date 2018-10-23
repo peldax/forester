@@ -210,8 +210,8 @@ bool GraphSolver::chvatal1972() const noexcept
 
     for (int i  = 1; i <= std::floor(m_graph->getDegree() / 2.0); i++)
     {
-        if (orderedDegree.at(i - 1) < i + 1 ||
-            orderedDegree.at(m_graph->getDegree() - i - 1) < m_graph->getDegree() - i)
+        if (orderedDegree[i - 1] < i + 1 ||
+            orderedDegree[m_graph->getDegree() - i - 1] < m_graph->getDegree() - i)
         {
             return false;
         }
@@ -266,9 +266,9 @@ static void recursiveFn(int index, std::vector<bool>& search, const std::vector<
     search[index] = true;
     for (int i = 0; i < matrix.size(); i++)
     {
-        bool val = matrix.at(index).at(i);
+        bool val = matrix[index][i];
 
-        if (val && search.at(i) != true)
+        if (val && search[i] != true)
         {
             search[i] = true;
             recursiveFn(i, search, matrix);
@@ -337,7 +337,7 @@ bool GraphSolver::bfHasClaw() const noexcept
             {
                 for (int l = 2; l < neighbours.size(); l++)
                 {
-                    auto subgraph = m_graph->induced({i, neighbours.at(j), neighbours.at(k), neighbours.at(l)});
+                    auto subgraph = m_graph->induced({i, neighbours[j], neighbours[k], neighbours[l]});
 
                     if (subgraph.isClaw())
                     {

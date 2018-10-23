@@ -60,7 +60,7 @@ Graph Graph::induced(const std::vector<int>& nodeIndices) const noexcept
 
         for (int j : nodeIndices)
         {
-            row.push_back(m_matrix.at(i).at(j));
+            row.push_back(m_matrix[i][j]);
         }
 
         matrix.push_back(row);
@@ -76,7 +76,7 @@ std::vector<int> Graph::getNodeNeighbours(int index) const noexcept
 
     for (int i = 0; i < getDegree(); i++)
     {
-        if (m_matrix.at(index).at(i))
+        if (m_matrix[index][i])
         {
             neighbours.push_back(i);
         }

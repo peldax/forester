@@ -3,4 +3,11 @@ project(forester)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(forester main.cpp SmartGraphSolver.cpp SmartGraphSolver.hpp Generator.cpp Generator.hpp CacheState.hpp MutableGraph.cpp MutableGraph.hpp Graph.cpp Graph.hpp GraphSolver.cpp GraphSolver.hpp)
+add_executable(forester
+        main.cpp
+        Graph.cpp Graph.hpp
+        MutableGraph.cpp MutableGraph.hpp
+        Generator.cpp Generator.hpp
+        GraphSolver.cpp GraphSolver.hpp
+        SmartGraphSolver.cpp SmartGraphSolver.hpp
+        CacheState.hpp)

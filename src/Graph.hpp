@@ -111,7 +111,7 @@ public:
      */
     inline bool hasEdge(int index1, int index2) const noexcept
     {
-        return m_matrix.at(index1).at(index2);
+        return m_matrix[index1][index2];
     }
 
 public:
@@ -141,7 +141,7 @@ public:
      */
     inline int getNodeDegree(int index) const noexcept
     {
-        return m_degrees.at(index);
+        return m_degrees[index];
     }
 
     /**
