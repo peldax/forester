@@ -22,6 +22,10 @@
 
 class MutableGraph : public Graph
 {
+    using Graph::Graph;
+    
+public:
+
     /**
      * Adds new edge between given nodes
      * @param index1
