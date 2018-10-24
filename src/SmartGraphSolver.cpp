@@ -153,7 +153,7 @@ bool SmartGraphSolver::hasHamiltonCircle() const noexcept
     return m_hamiltonRoute == CacheState::TRUE;
 }
 
-int SmartGraphSolver::getMinColoring() const noexcept
+int SmartGraphSolver::getChromaticNumber() const noexcept
 {
     return 0;
 }

@@ -57,6 +57,11 @@ int GraphSolver::getCircumference() const noexcept
     return bfCircumference();
 }
 
+int GraphSolver::getGirth() const noexcept
+{
+    return bfGirth();
+}
+
 bool GraphSolver::hasClaw() const noexcept
 {
     return bfHasClaw();
@@ -110,7 +115,7 @@ bool GraphSolver::hasHamiltonCircle() const noexcept
     return dirac1952() || ore1960() || poza1963() || chvatal1972() || bondyChvatal1974() || oberlySummer1979() || bfHamiltonCircle();
 }
 
-int GraphSolver::getMinColoring() const noexcept
+int GraphSolver::getChromaticNumber() const noexcept
 {
     return 0;
 }
@@ -275,7 +280,6 @@ bool GraphSolver::bfContinuity() const noexcept
 {
     std::vector<bool> search(m_graph->getDegree(), false);
 
-    // TODO make this a lambda fn
     recursiveFn(0, search, m_graph->getMatrix());
 
     return std::find(search.begin(), search.end(), false) == search.end();
@@ -283,24 +287,31 @@ bool GraphSolver::bfContinuity() const noexcept
 
 bool GraphSolver::bfLocalContinuity() const noexcept
 {
-    // TODO
+    // TODO subgraph algorithm
     return false;
 }
 
 int GraphSolver::bfNodeContinuity() const noexcept
 {
-    // TODO
+    // TODO subgraph algorithm
     return 0;
 }
 
 int GraphSolver::bfEdgeContinuity() const noexcept
 {
-    // TODO
+    // TODO subgraph algorithm
     return 0;
 }
 
 int GraphSolver::bfCircumference() const noexcept
 {
+    // TODO algorithm
+    return 0;
+}
+
+int GraphSolver::bfGirth() const noexcept
+{
+    // TODO algorithm
     return 0;
 }
 
@@ -348,12 +359,12 @@ bool GraphSolver::bfHasClaw() const noexcept
 
 bool GraphSolver::bfHamiltonRoute() const noexcept
 {
-    // TODO
+    // TODO permutation algorithm
     return true;
 }
 
 bool GraphSolver::bfHamiltonCircle() const noexcept
 {
-    // TODO
+    // TODO permutation algorithm
     return false;
 }

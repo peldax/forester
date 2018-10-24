@@ -225,6 +225,15 @@ public:
     }
 
     /**
+     * Returns length of shortest circle in graph
+     * @return
+     */
+    int getGirth() const noexcept
+    {
+        return m_solver->getGirth();
+    }
+
+    /**
      * Returns whether graph has K13 as subgraph
      * @return
      */
@@ -285,8 +294,8 @@ public:
      * Returns graphs minimal coloring
      * @return
      */
-    int getMinColoring() const noexcept
+    int getChromaticNumber() const noexcept
     {
-        return m_solver->getMinColoring();
+        return m_solver->getChromaticNumber();
     }
 };

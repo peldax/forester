@@ -87,6 +87,12 @@ public:
     virtual int getCircumference() const noexcept;
 
     /**
+     * Returns length of shortest circle in graph
+     * @return
+     */
+    virtual int getGirth() const noexcept;
+
+    /**
      * Returns whether graph has K13 as subgraph
      * @return
      */
@@ -132,7 +138,7 @@ public:
      * Returns graphs minimal coloring
      * @return
      */
-    virtual int getMinColoring() const noexcept;
+    virtual int getChromaticNumber() const noexcept;
 
 protected:
 
@@ -220,6 +226,12 @@ protected:
      * @return
      */
     int bfCircumference() const noexcept;
+
+    /**
+     * Bruce force calculation of girth
+     * @return
+     */
+    int bfGirth() const noexcept;
 
     /**
      * Brute force check for claw subgraph

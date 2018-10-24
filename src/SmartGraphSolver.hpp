@@ -144,5 +144,5 @@ public:
      * Returns graphs minimal coloring
      * @return
      */
-    int getMinColoring() const noexcept override;
+    int getChromaticNumber() const noexcept override;
 };
