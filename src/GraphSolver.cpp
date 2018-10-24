@@ -237,17 +237,13 @@ bool GraphSolver::bondyChvatal1974() const noexcept
         {
             for (int j = 0; j < m_graph->getDegree(); j++)
             {
-                if (i == j || closure.hasEdge(i, j))
+                if (i == j || closure.hasEdge(i, j) || closure.getNodeDegree(i) + closure.getNodeDegree(j) < closure.getDegree())
                 {
                     continue;
                 }
 
-                if (closure.getNodeDegree(i) + closure.getNodeDegree(j) >= closure.getDegree())
-                {
-                    closure.addEdge(i, j);
-                    change = true;
-                    continue;
-                }
+                closure.addEdge(i, j);
+                change = true;
             }
         }
     }
