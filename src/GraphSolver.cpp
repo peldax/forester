@@ -76,17 +76,11 @@ bool GraphSolver::isClaw() const noexcept
     {
         int degree = m_graph->getNodeDegree(i);
 
-        if (degree == 3)
+        switch (degree)
         {
-            count3++;
-        }
-        else if (degree == 1)
-        {
-            count1++;
-        }
-        else
-        {
-            return false;
+            case 1: count1++; break;
+            case 3: count3++; break;
+            default: return false;
         }
     }
 
